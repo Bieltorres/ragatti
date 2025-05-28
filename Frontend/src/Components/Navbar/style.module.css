@@ -1,0 +1,277 @@
+.wrapper {
+    color: var(--Navbar_txt);
+    z-index: 1005;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: #202020;
+    height: 100%;
+    width: 18rem;
+    position: fixed;
+    transition: .5s;
+    z-index: 200;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerNavbar {
+    height: 70px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    -webkit-transition: all .2s;
+    position: relative;
+}
+
+.headerNavbar>svg {
+    color: var(--Navbar_header_svg);
+    opacity: .7;
+}
+
+.selectCompany {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.razao_social span {
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+
+.contentNavbar {
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.links {
+    display: flex;
+    text-decoration: none !important;
+    color: #ffffff;
+    opacity: 0.9;
+    font-weight: var(--Navbar_links_fontWeight);
+    letter-spacing: var(--Navbar_links_letterSpacing);
+}
+
+.links:hover {
+    color: #ffffff;
+    opacity: 1;
+    background-color: #8B5CF6;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.configUser {
+    padding-top: 1rem;
+    border-top: 1px solid #b8b8b848;
+    width: 100%;
+    position: absolute;
+    bottom: 1rem;
+    gap: 1rem;
+}
+
+.optionMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.optionMenu {
+    margin-left: 1rem;
+}
+
+.activeOption {
+    background-color: #ab92f8;
+    border-radius: .5rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.activeOption span {
+    border-left: 2px solid #fff;
+    padding-left: .5rem;
+    color: #ffffff;
+}
+
+.activeClass {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #A78BFA;
+    padding: 1rem;
+    margin: 0;
+    border-radius: .5rem;
+    color: #ffffff !important;
+}
+
+.teste {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 40rem;
+}
+
+.teste::-webkit-scrollbar {
+    width: 2px;
+}
+
+.teste::-webkit-scrollbar-thumb {
+    background-color: #888888b6;
+    border-radius: 2px;
+    border: 1px solid #f1f1f15e;
+}
+
+.teste::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+}
+
+.teste::-webkit-scrollbar-thumb:hover {
+    background: #888888b6;
+}
+
+.contentLogo {
+    width: 100%;
+    display: flex;
+    padding-top: 1.3rem;
+    margin: 1rem 0 0 1.2rem
+}
+
+.logoFull {
+    width: 50%;
+    transition: width 0.3s, filter 0.3s;
+    filter: brightness(1);
+    padding-bottom: 1rem;
+}
+
+.logoMini {
+    width: 40px;
+    transition: width 0.3s, filter 0.3s;
+    filter: brightness(1);
+}
+
+.infoUser {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+}
+
+.infoUser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+}
+
+.nameUser {
+    margin-top: 4px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.emailUser {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #aaa;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.userIcon {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: baseline;
+
+}
+
+.userName {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.userEmail {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.2;
+}
+
+.toggleIcon {
+    width: 14px;
+    height: 14px;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.navbarClosed .toggleIcon {
+    transform: rotate(180deg);
+}
+
+.btnShowDropdown {
+    background-color: #C3B48B;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnShowDropdown:hover {
+    background-color: #C3B48B;
+}
+
+.logoutContent {
+    padding-top: 1rem;
+}
+
+.threeDots {
+    position: absolute;
+    left: 16rem;
+    right: 0;
+    top: 2.7rem;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.threeDots:hover {
+    color: var(--primary-color);
+}
+
+.iconActivate {
+    right: 1.5rem;
+    top: 3.7rem;
+}

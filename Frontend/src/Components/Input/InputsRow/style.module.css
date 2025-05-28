@@ -1,0 +1,4 @@
+.inputsRow {
+    display: flex;
+    gap: .9rem;
+}

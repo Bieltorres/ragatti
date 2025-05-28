@@ -1,0 +1,170 @@
+.contentRight {
+    padding-left: 18rem;
+  
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    transition: .4s;
+    width: 5rem !important;
+}
+
+.hidden .threeDots {
+    display: none;
+}
+
+.contentRight,
+.contentHidden {
+    transition: .3s;
+    min-height: 100dvh;
+    height: 100%;
+    width: 100%;
+}
+
+.contentHidden {
+    padding-left: 5rem;
+}
+
+.hidden .contentNavbarHidden {
+    padding: 1rem 0;
+}
+
+.btnOffNavbar {
+    background-color: transparent;
+    border: none;
+    color: #3e55a0;
+    transition: .4s;
+    cursor: pointer;
+    position: absolute;
+    left: 17rem;
+    top: 40rem;  
+}
+
+.hidden .btnOffNavbar {
+    position: absolute;
+    left: 4rem;
+}
+
+.menuTitle {
+    list-style: none;
+    font-size: 14px;
+    bottom: -4px;
+    font-weight: 300;
+    margin-left: 1.5rem;
+}
+
+.hidden .menuTitle {
+    display: none;
+}
+
+.hidden .razao_social_hidden {
+    display: none;
+}
+
+.options * {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.options {
+    padding: .5rem;
+    transition: .4s;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.hidden .options {
+    padding: .5rem 0 !important;
+    justify-content: center;
+}
+
+.options a {
+    text-decoration: none;
+    width: 100%;
+    margin-left: 1rem;
+    color: #e8f1f2;
+}
+
+.hidden .options a {
+    margin-left: 1.6rem;
+}
+
+.menuItem {
+    font-size: 1rem;
+}
+
+.hidden .options .menuItem {
+    display: none;
+}
+
+.svgMenu {
+    width: 24px;
+    height: 24px;
+    fill: #fff !important;
+}
+
+.hidden .svgMenu {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.options a.active {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #C3B48B;
+    padding: 1rem;
+    margin: 0;
+    border-radius: .5rem;
+    color: #e8f1f2 !important;
+}
+
+.hidden .options a.active {
+    background-color: #C3B48B;
+    color: #e8f1f2 !important;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-left: .5rem;
+}
+
+.listMenu {
+    width: 100%;
+    padding-left:2.7rem;
+}
+
+
+.hidden .linksOptions {
+    width: 22px;
+    height: 22px;
+}
+
+.activeOptions {
+    border-left: 4px solid #fff;
+    padding-left: .5rem;
+    border-radius: 4px;
+}
+
+.dropdownMenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden .dropdownMenu {
+    position: absolute;
+    left: 4rem;
+    background-color: #3e55a0;
+    width: fit-content;
+    padding: 1rem 2rem 1.09rem 0;
+    border-top-right-radius: .75rem;
+    border-bottom-right-radius: .75rem;
+}

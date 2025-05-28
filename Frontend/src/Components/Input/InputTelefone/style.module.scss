@@ -1,0 +1,55 @@
+.contentInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width: 20rem;
+    padding: 1rem;
+    border-radius: .45rem;
+}
+
+.label {
+    font-size: 14px;
+    margin-bottom: .3rem;
+}
+
+.input:disabled {
+    cursor: not-allowed;
+    opacity: .7;
+}
+
+.darkMode {
+    .input {
+        background-color: #46405e;
+        border: 1px solid #ececec60;
+        color: #fff;
+    }
+
+    .label {
+        color: #fff;
+    }
+
+    .input:focus {
+        border: 1px solid #6c5bb2;
+        outline: none;
+    }
+}
+
+.lightMode {
+    .input {
+        background-color: #a5a4a42c;
+        border: 1px solid #49494928;
+        color: #1a1a1a ;
+    }
+
+    .label {
+        color: #1a1a1ac0;
+    }
+
+    .input:focus {
+        border: none;
+        outline: none;
+    }
+}
+

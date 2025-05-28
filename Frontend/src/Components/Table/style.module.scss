@@ -1,0 +1,316 @@
+@import '../../global.scss';
+
+.tableContainer {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+}
+
+th {
+    background-color: #c3b48b27;
+    font-weight: 600;
+    color: #4B5563;
+    font-size: 0.95rem;
+}
+
+td {
+    font-size: 0.95rem;
+    color: #4B5563;
+    font-weight: 400;
+}
+
+tr:hover {
+    background-color: #c3b48b27;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    border-top: 1px solid #c3b48b27;
+
+    button {
+        background: #C3B48B;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: #c3b48b27;
+        }
+
+        &:disabled {
+            background: #c3b48b27;
+            cursor: not-allowed;
+        }
+    }
+
+    span {
+        color: #4B5563;
+        font-size: 0.9rem;
+    }
+}
+
+.buttonsPagination {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.actionsContainer {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.actionButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    border-radius: 6px;
+
+    &:hover {
+        background-color: #c3b48b27;
+    }
+}
+
+.buttonExclamation {
+    background-color: #6b6b6b;
+}
+
+.editButton,
+.deleteButton,
+.infoButton,
+.approveButton {
+    border: none;
+}
+
+.approveButton {
+    &:hover {
+        background-color: rgba(16, 185, 129, 0.1);
+    }
+}
+
+.infoButtonWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltipCustom {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    min-width: 220px;
+    max-width: 320px;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+    height: fit-content;
+    transition: all 0.2s ease;
+}
+
+.tooltipCustom hr {
+    border: none;
+    border-top: 1px solid #555;
+    margin: 0.5rem 0;
+}
+
+.inviteForm {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    width: 100%;
+
+    .inputGroup {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0;
+
+        .inputLabel {
+            display: block;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .inputField {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #c3b48b27;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #333;
+            transition: all 0.2s ease;
+
+            &:focus {
+                outline: none;
+                border-color: #C3B48B;
+                box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+            }
+
+            &:disabled {
+                background-color: #F3E8FF;
+                cursor: not-allowed;
+                opacity: 0.8;
+            }
+        }
+
+        select.inputField {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 1em;
+            transition: transform 0.2s ease;
+        }
+
+        &.asc {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.dialogDeleteText {
+    font-size: 0.9rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialogDeleteButton {
+    background-color: #ef4444 !important;
+    color: white !important;
+    border: none !important;
+
+    &:hover {
+        background-color: #dc2626 !important;
+    }
+}
+
+.dialogCancelButton {
+    background-color: #C3B48B !important;
+    color: white !important;
+    border: none !important;
+
+    &:hover {
+        background-color: #C3B48B !important;
+    }
+}
+
+// Dark mode styles
+.darkMode {
+    background: #1F2937;
+
+    table {
+        th {
+            background-color: #374151;
+            color: #E5E7EB;
+        }
+
+        td {
+            color: #E5E7EB;
+        }
+
+        tr:hover {
+            background-color: #374151;
+        }
+    }
+
+    .pagination {
+        background: #374151;
+        border-top-color: #4B5563;
+
+        button {
+            &:disabled {
+                background: #4B5563;
+            }
+        }
+
+        span {
+            color: #E5E7EB;
+        }
+    }
+
+    .actionButton:hover {
+        background-color: #374151;
+    }
+
+    .tooltipCustom {
+        background: #1F2937;
+        border: 1px solid #4B5563;
+    }
+
+    .tooltipCustom hr {
+        border-color: #4B5563;
+    }
+}
+
+[data-theme="dark"] {
+    .table {
+        background-color: var(--card-background);
+        color: var(--text-color);
+        border-color: var(--table-border);
+    }
+
+    .tableHeader {
+        background-color: var(--table-header);
+        color: var(--text-color);
+        border-color: var(--table-border);
+    }
+
+    .tableRow {
+        border-color: var(--table-border);
+
+        &:hover {
+            background-color: var(--table-row-hover);
+        }
+    }
+
+    .tableCell {
+        border-color: var(--table-border);
+    }
+
+    .sortIcon {
+        color: var(--text-color);
+    }
+}

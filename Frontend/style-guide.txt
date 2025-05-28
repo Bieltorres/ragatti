@@ -1,0 +1,349 @@
+## Capturar Ids da empresa logada ou usuário logado:
+
+  const empresaId = useSelector((state) => state.login.dataUser.empresa_id);
+  const user_id = useSelector((state) => state.login.dataUser.id);
+
+# Guia de Estilos - Gabriel Torres
+
+## Tipografia
+
+### Fontes
+- Títulos e Cabeçalhos: 'Poppins', sans-serif
+- Texto geral: fonte padrão do sistema
+
+### Tamanhos de Fonte
+- Título principal: 1.5rem
+- Títulos de cards: 0.9rem
+- Valores em cards: 1.1rem
+- Títulos de tabelas: 1.2rem
+- Texto normal: 0.95rem
+
+### Pesos de Fonte
+- Títulos principais: 700 (bold)
+- Títulos de seção: 600 (semibold)
+- Títulos de cards: 500 (medium)
+- Texto normal: 400 (regular)
+
+## Cores
+
+### Paleta Principal
+- Roxo principal: #7C3AED
+- Roxo hover: #6D28D9
+- Roxo claro: #E9D5FF
+- Roxo mais claro: #F3E8FF
+
+### Texto
+- Texto principal: #333
+- Texto secundário: #666
+- Texto em destaque: #7C3AED
+- Texto desabilitado: #999
+
+### Bordas e Divisores
+- Cor padrão: #E9D5FF
+- Cor hover: #7C3AED
+
+## Layout
+
+### Container
+- Padding: 2rem
+- Largura máxima: 1200px
+- Margem: 0 auto
+
+### Cards
+- Padding: 1.5rem
+- Border radius: 12px
+- Box shadow: 0 2px 10px rgba(0, 0, 0, 0.05)
+- Gap entre cards: 1.5rem
+
+### Tabelas
+- Header background: #F3E8FF
+- Hover background: #F3E8FF
+- Padding células: 1rem 1.5rem
+- Border bottom: 1px solid #E9D5FF
+
+### Botões
+- Background: #7C3AED
+- Hover: #6D28D9
+- Desabilitado: #E9D5FF
+- Padding: 0.5rem 1rem
+- Border radius: 6px
+- Transição: all 0.2s ease
+
+## Responsividade
+
+### Breakpoints
+- Desktop: > 1024px
+- Tablet: 768px - 1024px
+- Mobile: < 768px
+
+### Ajustes Mobile
+- Padding container: 1rem
+- Título principal: 1.8rem
+- Cards em coluna única
+- Inputs em largura total
+
+## Interatividade
+
+### Hover Effects
+- Cards: translateY(-2px)
+- Botões: background mais escuro
+- Links: cor mais escura
+- Tabelas: background #F3E8FF
+
+### Transições
+- Duração: 0.2s
+- Timing: ease
+
+## Consistência
+
+### Importante
+- Manter consistência visual em todas as telas
+- Seguir a hierarquia de informações
+- Usar os mesmos padrões de espaçamento
+- Manter a paleta de cores consistente
+- Garantir que todos os elementos interativos tenham estados hover
+- Manter a responsividade em todas as telas 
+
+## Padrão de API
+
+### Estrutura de Resposta
+```json
+{
+    "errorCode": "",
+    "comandoExecutado": true,
+    "mensagemUsuario": "Mensagem de sucesso ou erro",
+    "execucaoDataHoraInicial": "2025-05-10T00:40:19.405Z",
+    "execucaoDataHoraFinal": "2025-05-10T00:40:20.894Z",
+    "objetos": [
+        // Objeto único ou array de objetos
+    ],
+    "excecoes": []
+}
+```
+
+### Padrão de Requisição
+```javascript
+const handleRequest = async () => {
+  try {
+    setLoading(true);
+    const response = await fetch(`${apiUrl}/api/endpoint`, {
+      method: 'POST', // Sempre usar POST
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    const data = await response.json();
+
+    if (data.comandoExecutado) {
+      setMessage({ text: data.mensagemUsuario, type: 'success' });
+      // Lógica de sucesso
+    } else {
+      setMessage({ text: data.mensagemUsuario || 'Mensagem de erro padrão', type: 'error' });
+    }
+    // Lógica de erro
+  } catch (error) {
+    console.error('Error:', error);
+    setMessage({ text: 'Mensagem de erro', type: 'error' });
+  } finally {
+    setLoading(false);
+  }
+};
+```
+
+### Regras Importantes
+1. Endpoints
+   - Sempre usar prefixo `/api/`
+   - Evitar parâmetros na URL
+   - Usar POST para todas as operações (GET, POST, PUT, DELETE)
+
+2. Tratamento de Resposta
+   - Verificar `comandoExecutado` para sucesso/erro - sempre retornará true ou false
+   - Dados sempre em `objetos[0]` (único) ou `objetos` (array)
+   - Usar `mensagemUsuario` para feedback ao usuário
+
+3. Loading States
+   - Sempre implementar estado de loading
+   - Usar try/catch/finally
+   - Garantir que loading seja finalizado em finally
+
+4. Mensagens
+   - Sucesso: type: 'success'
+   - Erro: type: 'error'
+   - Usar mensagem do backend quando disponível
+   - Ter mensagem de fallback para erros
+
+5. Boas Práticas
+   - Sempre tratar erros
+   - Logar erros no console
+   - Manter consistência no formato das requisições
+   - Usar async/await
+   - Implementar feedback visual (loading/mensagens) 
+
+## Componentes
+
+### Componentes Comuns
+1. Card (Container Principal)
+   - Estrutura obrigatória:
+   ```jsx
+   <Card>
+     <CardHeader 
+       title="Título da Página" 
+       icon="fa-solid fa-building" 
+     />
+     <CardBody>
+       {/* Conteúdo da página */}
+     </CardBody>
+   </Card>
+   ```
+
+   - CardHeader Props:
+     - title: string (obrigatório) - Título da página
+     - icon: string (obrigatório) - Ícone do FontAwesome
+       - Formato: 'fa-solid fa-nome-do-icone'
+       - Exemplos:
+         - 'fa-solid fa-building' (empresas)
+         - 'fa-solid fa-users' (pessoas)
+         - 'fa-solid fa-shopping-cart' (pedidos)
+         - 'fa-solid fa-chart-line' (relatórios)
+         - 'fa-solid fa-cog' (configurações)
+
+   - Importação:
+   ```jsx
+   import { Card } from '../../../Components/Card';
+   import { CardHeader } from '../../../Components/Card/CardHeader';
+   import { CardBody } from '../../../Components/Card/CardBody';
+   ```
+
+   - Exemplo Completo:
+   ```jsx
+   export const MinhaPagina = () => {
+     return (
+       <Card>
+         <CardHeader 
+           title="Configuração da Empresa" 
+           icon="fa-solid fa-building" 
+         />
+         <CardBody>
+           {/* Todo o conteúdo da página deve estar aqui */}
+           <div className={s.container}>
+             {/* Seu conteúdo aqui */}
+           </div>
+         </CardBody>
+       </Card>
+     );
+   };
+   ```
+
+   - Regras Importantes:
+     1. Sempre usar os três componentes juntos (Card, CardHeader, CardBody)
+     2. CardHeader deve ser o primeiro filho do Card
+     3. CardBody deve ser o segundo filho do Card
+     4. Todo o conteúdo da página deve estar dentro do CardBody
+     5. Ícones devem ser do FontAwesome e seguir o padrão 'fa-solid fa-nome'
+     6. Títulos devem ser descritivos e claros
+
+2. Table
+   - Componente reutilizável para todas as tabelas
+   - Props necessárias:
+     - columns: array de objetos com title e accessor
+     - data: array de dados
+     - itemsPerPage: número de itens por página
+     - showActions: boolean para mostrar ações
+     - pagination: boolean para mostrar paginação
+   - Exemplo:
+   ```jsx
+   <Table
+     columns={[
+       { title: 'Nome', accessor: 'name' },
+       { title: 'Email', accessor: 'email' }
+     ]}
+     data={data}
+     itemsPerPage={10}
+     showActions={true}
+     pagination={true}
+   />
+   ```
+
+3. DialogBoxAlert
+   - Usar para todos os diálogos de confirmação
+   - Props necessárias:
+     - title: título do diálogo
+     - description: conteúdo/descrição
+     - text_left_btn: texto do botão principal
+     - text_right_btn: texto do botão de cancelar
+     - confirmDialog: função de confirmação
+     - cancelDialog: função de cancelamento
+     - check: função de validação
+   - Exemplo:
+   ```jsx
+   <DialogBoxAlert
+     title="Confirmar ação"
+     description="Deseja realmente realizar esta ação?"
+     text_left_btn="Confirmar"
+     text_right_btn="Cancelar"
+     confirmDialog={handleConfirm}
+     cancelDialog={handleCancel}
+     check={validateForm}
+   />
+   ```
+
+4. Inputs
+   - Input: componente base para inputs
+   - InputCNPJ: para campos de CNPJ
+   - PhoneInput: para campos de telefone
+   - InputData: para campos de data
+   - InputsRow: para agrupar inputs em linha
+   - InputsRowBottom: para botões de ação no rodapé
+
+### Boas Práticas de Componentes
+1. Reutilização
+   - Sempre usar componentes existentes ao invés de criar novos
+   - Verificar se já existe um componente similar antes de criar
+   - Manter consistência visual usando os mesmos componentes
+
+2. Props
+   - Documentar todas as props necessárias
+   - Usar PropTypes ou TypeScript
+   - Manter props consistentes entre componentes similares
+
+3. Estilização
+   - Usar módulos CSS/SCSS
+   - Seguir o guia de estilos
+   - Manter consistência com outros componentes
+
+4. Responsividade
+   - Garantir que componentes funcionem em todos os breakpoints
+   - Usar classes responsivas do guia de estilos
+   - Testar em diferentes tamanhos de tela
+
+5. Acessibilidade
+   - Incluir atributos ARIA quando necessário
+   - Manter contraste adequado
+   - Garantir navegação por teclado
+
+### Padrão de Criação
+1. Estrutura de Arquivos
+   ```
+   Components/
+     ComponentName/
+       index.jsx
+       style.module.scss
+       README.md (opcional)
+   ```
+
+2. Nomenclatura
+   - PascalCase para componentes
+   - camelCase para arquivos de estilo
+   - Nomes descritivos e claros
+
+3. Documentação
+   - Comentar props importantes
+   - Explicar funcionalidades complexas
+   - Incluir exemplos de uso
+
+4. Testes
+   - Testar diferentes estados
+   - Verificar responsividade
+   - Validar acessibilidade 

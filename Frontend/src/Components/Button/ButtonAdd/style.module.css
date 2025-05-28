@@ -1,0 +1,46 @@
+
+  .button::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    top: 120%; 
+    transform: translateX(-50%);
+    background-color: #8f8e8efd;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .button:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .addButton {
+    background: #C3B48B;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    text-decoration: none;
+  
+    &:hover {
+      background: #c3b48bc2;
+    }
+  
+    i {
+      font-size: 1rem;
+    }
+  }

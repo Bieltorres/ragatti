@@ -1,0 +1,37 @@
+.wrapper {
+    padding-bottom: .5rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    justify-content: space-between;
+}
+
+.icon {
+    color: #C3B48B;
+}
+
+.title {
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+    font-size: 22px; color: #C3B48B;
+}
+
+.titleContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon {
+    height: 1.2rem;
+}
+
+.btnBackToPage {
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    padding-right: 10px;
+}
